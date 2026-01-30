@@ -1,0 +1,5 @@
+Ejecución
+python -m pytest -s tests/test_login.py
+
+Para ver el navegador
+python -m pytest -s tests/test_login.py --headed
