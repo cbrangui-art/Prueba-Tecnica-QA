@@ -15,7 +15,7 @@ def test_completo(page):
 # Escenario fallido 1 (contraseña incorrecta,genera error)
 def test_login_incorrecto1(page):
     login = LoginPage(page)
-    print("\n[LOG] FALLO CONTRASEÑA INCORRECTA")
+    print("\n[LOG] CONTRASEÑA INCORRECTA")
     login.navegar()
     login.login_completo("pruebasqa@enlace.com.co", "prueba123*")
     
@@ -25,7 +25,7 @@ def test_login_incorrecto1(page):
 # Escenario fallido 2 (ingreso mal usuario y contraseña) 
 def test_login_incorrecto2(page):
     login = LoginPage(page)
-    print("\n[LOG] ESCENARIO FALLIDO USUARIO Y CONTRASEÑA INCORRECTOS")
+    print("\n[LOG] USUARIO Y CONTRASEÑA INCORRECTOS")
     login.navegar()
     login.login_completo("pruebasqa@enlace.com.co", "prueba123*")
     

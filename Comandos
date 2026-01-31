@@ -1,9 +1,17 @@
-Ejecución en consola
+Ejecución en consola (modo headless)
 python -m pytest -s tests/test_login.py
 
-Para ver el navegador
+Con navegador visible
 python -m pytest -s --headed tests/test_login.py
 
+Reporte detallado con resumen
+python -m pytest -v --headed tests/test_login.py
+
+Generar reporte HTML
+python -m pytest --headed --html=reporte.html --self-contained-html tests/test_login.py
+
+Abrir reporte HTML
+start reporte.html
 
 Limpieza
 taskkill /F /IM "chrome.exe" /T
