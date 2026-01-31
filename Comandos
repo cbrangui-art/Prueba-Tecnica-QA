@@ -1,5 +1,9 @@
-Ejecución
+Ejecución en consola
 python -m pytest -s tests/test_login.py
 
 Para ver el navegador
-python -m pytest -s tests/test_login.py --headed
+python -m pytest -s --headed tests/test_login.py
+
+
+Limpieza
+taskkill /F /IM "chrome.exe" /T

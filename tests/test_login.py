@@ -1,23 +1,34 @@
-from pages.login_pages import LoginPage
+from pages.login_page import LoginPage
 from pages.cotizantes_page import CotizantesPage
 
-def test_escenarios(page):
-   
+# Escenario exitoso
+def test_completo(page):
     login = LoginPage(page)
     cotizantes = CotizantesPage(page)
 
-    
-    print("\n[log] inicio")
-    
-    # Login
+    print("\n[LOG] ESCENARIO EXITOSO")
     login.navegar()
     login.login_completo("pruebasqa@enlace.com.co", "Prueba1234567890*")
-    
-    # Consulta y descarga
     cotizantes.consultar_y_exportar("1143382658")
+    print("[LOG] Caso exitoso")
+
+# Escenario fallido 1 (contraseña incorrecta,genera error)
+def test_login_incorrecto1(page):
+    login = LoginPage(page)
+    print("\n[LOG] FALLO CONTRASEÑA INCORRECTA")
+    login.navegar()
+    login.login_completo("pruebasqa@enlace.com.co", "prueba123*")
     
-    print("[log] Exitoso")
-
-
-
+    assert login.obtener_mensaje_error(), " Usuario o contraseña incorrectos "
+    print("[LOG] CREDENCIALES INCORRECTAS")
+  
+# Escenario fallido 2 (ingreso mal usuario y contraseña) 
+def test_login_incorrecto2(page):
+    login = LoginPage(page)
+    print("\n[LOG] ESCENARIO FALLIDO USUARIO Y CONTRASEÑA INCORRECTOS")
+    login.navegar()
+    login.login_completo("pruebasqa@enlace.com.co", "prueba123*")
     
+    assert login.obtener_mensaje_error(), " Usuario o contraseña incorrectos "
+    print("[LOG] CREDENCIALES INCORRECTAS")
+  
